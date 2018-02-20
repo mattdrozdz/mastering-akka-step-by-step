@@ -1,0 +1,21 @@
+http -v POST boot2docker:8080/api/user   < user.json
+http boot2docker:8080/api/user/1
+http boot2docker:8080/api/user email==chris@masteringakka.com
+http PUT boot2docker:8080/api/user/1 < user-edit.json
+http DELETE boot2docker:8080/api/user/1
+
+http POST boot2docker:8080/api/book < book.json
+http boot2docker:8080/api/book/1
+http PUT boot2docker:8080/api/book/1/tag/ocean
+http DELETE boot2docker:8080/api/book/1/tag/ocean
+http boot2docker:8080/api/book tag==fiction
+http boot2docker:8080/api/book tag==fiction tag==scifi
+http boot2docker:8080/api/book author==Verne
+http PUT boot2docker:8080/api/book/1/inventory/5
+http DELETE boot2docker:8080/api/book/1
+
+http POST :8080/api/order < order.json
+http boot2docker:8080/api/order/1
+http boot2docker:8080/api/order userId==1
+http boot2docker:8080/api/order bookId==1
+http boot2docker:8080/api/order bookTag==fiction
