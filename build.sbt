@@ -1,11 +1,9 @@
-
-
 name := "initial-example-app"
 
 lazy val commonSettings = Seq(
   organization := "com.packt.masteringakka",
   version := "0.1.0",
-  scalaVersion := "2.11.2"
+  scalaVersion := "2.11.8"
 )
 
 lazy val root = (project in file(".")).
@@ -28,7 +26,7 @@ lazy val creditServices = (project in file("credit-services")).
 
 lazy val orderServices = (project in file("order-services")).
   settings(commonSettings: _*).
-  dependsOn(common)
+  dependsOn(common % "compile->compile;test->test")
 
 //  packageArchetype.java_server
 lazy val server = {

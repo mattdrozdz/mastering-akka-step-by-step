@@ -1,18 +1,24 @@
 name := "initial-example-common"
 
  
-libraryDependencies ++= Seq(
-  "com.typesafe.akka" %% "akka-actor" % "2.3.15",
-  "com.typesafe.akka" %% "akka-testkit" % "2.3.15",
-  "com.typesafe.akka" %% "akka-slf4j" % "2.3.15",
-  "ch.qos.logback" % "logback-classic" % "1.0.9",
-  "com.typesafe.slick" %% "slick" % "3.2.1",
-  "com.typesafe.slick" %% "slick-hikaricp" % "3.2.1",
-  "net.databinder" %% "unfiltered-filter" % "0.8.4",
-  "net.databinder" %% "unfiltered-netty" % "0.8.4",
-  "net.databinder" %% "unfiltered-netty-server" % "0.8.4",
-  "net.databinder" %% "unfiltered-json4s" % "0.8.4",
-  "org.json4s" %% "json4s-ext" % "3.2.9",
-  "org.postgresql" % "postgresql" % "42.1.4",
-  "net.databinder.dispatch" %% "dispatch-core" % "0.11.2"
-)
+libraryDependencies ++=  {
+  val akkaVersion = "2.4.6"
+  val slickVersion = "3.2.1"
+  val hikariCPVersion = "2.4.6"
+  Seq(
+    "com.typesafe.akka" %% "akka-actor" % akkaVersion,
+    "com.typesafe.akka" %% "akka-slf4j" % akkaVersion,
+    "ch.qos.logback" % "logback-classic" % "1.1.3",
+    "com.typesafe.slick" %% "slick" % slickVersion,
+    "com.typesafe.slick" %% "slick-hikaricp" % slickVersion exclude("com.zaxxer", "HikariCP-java6"),
+    "com.zaxxer" % "HikariCP" % hikariCPVersion,
+    "net.databinder" %% "unfiltered-filter" % "0.8.4",
+    "net.databinder" %% "unfiltered-netty" % "0.8.4",
+    "net.databinder" %% "unfiltered-netty-server" % "0.8.4",
+    "net.databinder" %% "unfiltered-json4s" % "0.8.4",
+    "org.json4s" %% "json4s-ext" % "3.2.9",
+    "org.postgresql" % "postgresql" % "42.1.4",
+    "net.databinder.dispatch" %% "dispatch-core" % "0.11.2",
+    "com.typesafe.akka" %% "akka-testkit" % akkaVersion % Test
+  )
+}
